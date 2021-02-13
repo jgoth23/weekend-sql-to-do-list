@@ -1,4 +1,10 @@
-# Project Name
+# Project Name  ***WEEKEND-SQL-TO-DO-LIST***
+- [] Set up files
+- [] Bring node/express
+- [] Create database w/sql
+- [] gitignore
+
+
 
 [Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
 

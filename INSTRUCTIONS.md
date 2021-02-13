@@ -40,7 +40,7 @@ Be sure to create a new database through Postico. Use the name `weekend-to-do-ap
 
 Please include a `database.sql` text file in your repo that includes all of your `CREATE TABLE` queries. This is so we can re-create your database while testing your app.
 
-## Stretch Goals
+<!-- ## Stretch Goals
 
 For each of your strech goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
 
@@ -62,4 +62,4 @@ For each of your strech goals, you will be practicing git branching. Please refe
     
 - `feature-time-completed` 
 
-    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.
+    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format. -->
