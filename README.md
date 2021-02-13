@@ -1,8 +1,9 @@
 # Project Name  ***WEEKEND-SQL-TO-DO-LIST***
 - [] Set up files
-- [] Bring node/express
+- [X] Bring node/express to get server activated
 - [] Create database w/sql
-- [] gitignore
+- [X] gitignore
+- [X] Get start command for server
 
 
 
