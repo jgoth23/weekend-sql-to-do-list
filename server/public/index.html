@@ -12,19 +12,35 @@
 <body>
   <section id="addTask">
     <h2>Add task</h2>
+    <input type="text" id="todoIn" value="" placeholder="todo">
     <input type="text" id="importanceIn" value="" placeholder="Importance">
     <input type="text" id="rankIn" value="" placeholder="rank">
     <input type="text" id="notesIn" value="" placeholder="notes">
     <button type="button" id="completeButton">Completed task</button>
     <button type="button" id="deleteButton">Delete task</button>
     <div>
-    <button type="button" id="addButton">Add task</button>
+    <button type="button" id="addTaskButton">Add task</button>
     </div>
+  </section>
+  <section>
+    <h2>All tasks</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Todo</th>
+          <th>Importance</th>
+          <th>Rank</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="viewTasks">
+      </tbody>
+    </table>
   </section>
   <!-- <button type="button" id="completeButton">complete</button>
     <button type="button" id="deleteButton">delete</button> -->
 
-  </button>
+  
 
   
 </body>

@@ -1,9 +1,19 @@
 # Project Name  ***WEEKEND-SQL-TO-DO-LIST***
 - [X] Set up files and check to make sure they are working
 - [X] Bring node/express to get server activated
-- [] Create database w/sql
+- [X] Create database w/sql
 - [X] gitignore
 - [X] Get start command for server
+
+
+
+### Styling
+
+Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:
+  - [X] background color of the page
+  - [X]font family and size
+  - text color & or background color of tasks *to show whether or not they have been completed*
+
 
 
 

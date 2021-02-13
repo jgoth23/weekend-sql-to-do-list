@@ -1,11 +1,12 @@
 const express = require('express');
-const tasksRouter = express.Router();
+const router = express.Router();
 
 // DB CONNECTION
 const pool = require('../modules/pool');
+//this option is required
 
 // *** GET
-toDoRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
   // do a DB query
   pool
     .query(
@@ -13,7 +14,7 @@ toDoRouter.get('/', (req, res) => {
             ORDER BY "rank" ASC`
     )
     .then(function (dbRes) {
-      // console.log(dbRes.rows);
+       console.log(dbRes.rows);
       // send all koalas to client
       res.send(dbRes.rows);
     })
@@ -25,7 +26,7 @@ toDoRouter.get('/', (req, res) => {
 });
 
 // *** POST
-toDoRouter.post('/', (req, res) => {
+router.post('/', (req, res) => {
   /*
   Query should look like this:
 
@@ -43,7 +44,7 @@ toDoRouter.post('/', (req, res) => {
     .query(
       `
     INSERT INTO "tasks"
-    ("importance", "rank", "notes")
+    ("todo", "importance", "rank", "notes")
     VALUES
     ('${req.body.importance}', '${req.body.rank}', '${req.body.notes}');
     `
@@ -64,7 +65,7 @@ toDoRouter.post('/', (req, res) => {
 
 // PUT
 // need to update the ready to transfer
-toDoRouter.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   console.log('req.body', req.body);
   console.log('req.params', req.params);
   let taskID = req.params.id;
