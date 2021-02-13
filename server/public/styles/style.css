@@ -1,0 +1,11 @@
+body {
+  background: rgb(242,242,143);
+background: radial-gradient(circle, rgba(242,242,143,1) 0%, rgba(135,247,254,1) 80%);
+
+}
+
+h1 {
+  font-size: xx-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
