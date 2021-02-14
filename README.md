@@ -5,8 +5,9 @@
 - [X] gitignore
 - [X] Get start command for server
 - [X] Create tasks, render to the DOM
-- [] Store task in database
-- [] Have a complete/delete option
+- [X] Store task in database
+- [X] Have a complete
+- [] delete option
 - [] When completed, task should change visually on the dom
 - [] complete option should be checked off
 - [] If a task is completed or not that should be stored in the database

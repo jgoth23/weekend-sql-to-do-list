@@ -2,8 +2,8 @@ console.log('js');
 
 $(document).ready(function () {
   console.log('JQ');
-  $('#deleteButton').on('click', deleteInputs);
-  $('#completeButton').on('click', completedInputs);
+  $(document).on('click', '#deleteBtn', deleteTaskHandler);
+  $(document).on('click', '#completedBtn', completionUpdate);
   $('#addTaskButton').on('click', function() {
     let tasks = {
       todo: $('#todoIn').val(),
@@ -30,9 +30,7 @@ function deleteInputs() {
 }
 
 
-//function setupClickListeners() {
-  //$(document).on('click', '.koala-transfer-button', updateTransfer);
-  //$('#addButton').on('click', function () {
+
     console.log('in addButton on click');
 
     // get user input and put in an object
@@ -66,10 +64,18 @@ function getTasks() {
 
       console.log('getTasks GET response:', tasksArray);
 
-      
+
 
       for (let tasks of tasksArray) {
-        
+        let completedBtn = `<button id="completedBtn" 
+        data-id="${tasks.id}" data-status="${tasks.completed}">
+        Completed</button>`;
+
+        let deleteBtn = `<button id="deleteBtn" 
+        data-id="${tasks.id}">
+        Delete</button>`;
+
+      
 
         tasksOnDom.append(`
           <tr class="tasks-row">
@@ -78,7 +84,9 @@ function getTasks() {
           <td data-info="${tasks.rank}">${tasks.rank}</td>
           <td data-info="${tasks.notes}">${tasks.notes}</td>
           <td data-info="${tasks.completed}">${tasks.completed}</td>
-        
+          <td>${completedBtn}</td>
+          <td>${deleteBtn}</td>
+
           </tr>
         `);
       }
@@ -88,6 +96,45 @@ function getTasks() {
     });
 } // end getKoalas
 
+function completionUpdate() {
+  console.log('complete update');
+  let thisTaskId = $(this).data('id');
+  let thisTaskStatus = $(this).data('status');
+  console.log('this task status', thisTaskStatus);
+  console.log('this task id', thisTaskId);
+  $.ajax({
+    method: 'PUT',
+    url: `/weekendToDo/${thisTaskId}`,
+    data: {
+      thisTaskStatus,
+    },
+  })
+    .then((response) => {
+      console.log('Successful!');
+      getTasks();
+    })
+    .catch((error) => {
+      alert('Error in completion', error);
+    });
+}
+function deleteTaskHandler() {
+  // call AJAX to DELETE song;
+  deleteTask($(this).data("id"))
+}
+function deleteTask(taskId) {
+  
+  $.ajax({
+    method: 'DELETE',
+    url: `/weekendToDo/${taskId}`,
+    
+  })
+    .then(function (response) {
+      getTasks();
+    })
+    .catch(function (banana) {
+      alert('error', banana);
+    });
+}
 
 function saveTask(newTask) {
   console.log('in saveTasks', newTask);
