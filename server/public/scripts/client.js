@@ -5,7 +5,7 @@ $(document).ready(function () {
   $('#deleteButton').on('click', deleteInputs);
   $('#completeButton').on('click', completedInputs);
   //$('#addTaskButton').on('click', getTasks);
-  //getTasks();
+  getTasks();
 }); // end doc ready
 
 function completedInputs() {
@@ -48,7 +48,7 @@ function getTasks() {
   // ajax call to server to get tasks
   $.ajax({
     method: 'GET',
-    url: '/weekend_to_do_app',
+    url: '/weekendToDoApp',
   })
     .then(function (tasksArray) {
       let tasksOnDom = $('#viewTasks');
@@ -58,17 +58,16 @@ function getTasks() {
       console.log('getTasks GET response:', tasksArray);
 
       for (let tasks of tasksArray) {
-        let addTaskButton = `<button class="addTaskButton" data-id="${tasks.id}" data-status="${tasks.getTasks}">
-        Toggle ready to transfer</button>`;
+        
 
         tasksOnDom.append(`
-          <tr class="tasks-row>
+          <tr class="tasks-row">
           <td data-info="${tasks.todo}">${tasks.todo}</td>
-          <td data-info="$${tasks.importance}">${tasks.importance}</td>
-          <td data-info="$${tasks.rank}">${tasks.rank}</td>
-          <td data-info="$${tasks.notes}">${tasks.notes}</td>
-          <td data-info="$${tasks.completed}">${tasks.completed}</td>
-            <td>${addTaskButton}</td>
+          <td data-info="${tasks.importance}">${tasks.importance}</td>
+          <td data-info="${tasks.rank}">${tasks.rank}</td>
+          <td data-info="${tasks.notes}">${tasks.notes}</td>
+          <td data-info="${tasks.completed}">${tasks.completed}</td>
+        
           </tr>
         `);
       }

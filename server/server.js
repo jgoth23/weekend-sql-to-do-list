@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = 5000;
+const tasks = require('./routes/tasks.router');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -9,7 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 // ROUTES
-//app.use('/weekendToDoApp', router)
+app.use('/weekendToDoApp', tasks)
 
 // Start listening for requests on a specific port
 app.listen(PORT, () => {
