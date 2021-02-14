@@ -4,7 +4,7 @@
 - [X] Create database w/sql
 - [X] gitignore
 - [X] Get start command for server
-- [] Create tasks, render to the DOM
+- [X] Create tasks, render to the DOM
 - [] Store task in database
 - [] Have a complete/delete option
 - [] When completed, task should change visually on the dom
