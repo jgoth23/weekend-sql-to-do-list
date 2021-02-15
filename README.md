@@ -7,11 +7,11 @@
 - [X] Create tasks, render to the DOM
 - [X] Store task in database
 - [X] Have a complete
-- [] delete option
+- [X] delete option
 - [] When completed, task should change visually on the dom
 - [] complete option should be checked off
-- [] If a task is completed or not that should be stored in the database
-- [] Deleting a task should remove it from DOM and db
+- [X] If a task is completed or not that should be stored in the database
+- [X] Deleting a task should remove it from DOM and db
 
 
 

@@ -12,6 +12,7 @@ $(document).ready(function () {
       notes: $('#notesIn').val(),
     };
     saveTask(tasks);
+    deleteInputs();
 })
   getTasks();
   
@@ -23,7 +24,8 @@ function completedInputs() {
 
 function deleteInputs() {
   console.log('delete tasks');
-  $('#todoIn').val(''), $('#importanceIn').val('');
+  $('#todoIn').val(''); 
+  $('#importanceIn').val('');
   $('#rankIn').val('');
   $('#notesIn').val('');
   $('#completed').val('');
@@ -33,22 +35,7 @@ function deleteInputs() {
 
     console.log('in addButton on click');
 
-    // get user input and put in an object
-    function taskToAdd() {
-      let tasks = {
-      todo: $('#todoIn').val(),
-      importance: $('#importanceIn').val(),
-      rank: $('#rankIn').val(),
-      notes: $('#notesIn').val(),
-    };
-
-    //Reset inputs to empty:
-    $('#todoIn').val(), $('#importanceIn').val('');
-    $('#rankIn').val('');
-    $('#notesIn').val('');
-   
-    saveTask(taskToSend);
-  }
+ 
 
 function getTasks() {
   console.log('in getTasks');
@@ -94,8 +81,13 @@ function getTasks() {
     .catch(function (error) {
       console.log('error in GET', error);
     });
-} // end getKoalas
+} // end getTasks
 
+function yellowBtn() {
+  console.log('yellow');
+  $(this).css('background-color', 'green');
+  console.log($(this).parent());
+}
 function completionUpdate() {
   console.log('complete update');
   let thisTaskId = $(this).data('id');
@@ -116,9 +108,10 @@ function completionUpdate() {
     .catch((error) => {
       alert('Error in completion', error);
     });
+    yellowBtn();
 }
 function deleteTaskHandler() {
-  // call AJAX to DELETE song;
+  // call AJAX to DELETE tasks;
   deleteTask($(this).data("id"))
 }
 function deleteTask(taskId) {
@@ -142,7 +135,7 @@ function saveTask(newTask) {
   let task_to_add = newTask;
   console.log(task_to_add);
 
-  // ajax call to server to post koalas:
+  // ajax call to server to post tasks:
   $.ajax({
     method: 'POST',
     url: '/weekendToDo',
@@ -157,22 +150,4 @@ function saveTask(newTask) {
     });
 }
 
-// function createTask() {
-//   console.log('new');
-//   let thisKoalaId = $(this).data('id');
-//   let thisKoalaStatus = $(this).data('status');
-//   $.ajax({
-//     method: 'PUT',
-//     url: `/tasks/${thisTasksId}`,
-//     data: {
-//       thisKoalaStatus,
-//     },
-//   })
-//     .then((response) => {
-//       console.log('Successful transfer!');
-//       getKoalas();
-//     })
-//     .catch((error) => {
-//       alert('Error with transfer', error);
-//     });
 
